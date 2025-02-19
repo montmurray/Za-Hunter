@@ -10,13 +10,19 @@ import MapKit
 
 struct ContentView: View {
     @State private var startPosition = MapCameraPosition.userLocation(fallback: .automatic)
+    @State private var mapRegion = MKCoordinateRegion()
     @StateObject var locationManager = LocationManager()
     var body: some View {
-        Map(position: $startPosition) {
-                    UserAnnotation()
-                }
+        NavigationView {
+            Map(position: $startPosition) {
+                UserAnnotation()
+            }
+            .navigationBarTitle("'Za Hunter", displayMode: .inline)
+            .toolbarBackground(.hidden, for: .navigationBar)
+        }
     }
 }
+
 
 #Preview {
     ContentView()
