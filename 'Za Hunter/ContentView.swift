@@ -23,6 +23,7 @@ struct ContentView: View {
                     }
                     }
                 }
+                }
                 .onMapCameraChange {
                     context in mapRegion = context.region
                     performSearch(item: "Pizza")
@@ -46,7 +47,6 @@ struct ContentView: View {
             }
         }
     }
-}
 
 #Preview {
     ContentView()
